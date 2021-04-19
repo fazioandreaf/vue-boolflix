@@ -7,5 +7,10 @@ body{
     background: lightblue;
 }
 #app{
+    display: flex;
+    flex-wrap: wrap;
+}
+.card{
     background-color: lightgray;
+    margin: 5px;
 }

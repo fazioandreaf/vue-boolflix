@@ -3,7 +3,7 @@ function init(){
         el:'#app',
         data:{
             query:'batman',
-            prova:''
+            allResults:''
         },
         mounted(){
             axios.get('https://api.themoviedb.org/3/search/movie', {
@@ -13,12 +13,12 @@ function init(){
                 }
             })
          .then(data => {
-             this.prova=data.data.results[0].original_title;
-             console.log(this.prova)
+             this.allResults=data.data;
+             console.log(this.allResults)
             })
          .catch(()=>
          console.log('error'));
         },
     })
 }
-document.addEventListener('DOMContentLoader',init())
+document.addEventListener('DOMContentLoaded',init);
