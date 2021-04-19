@@ -17,11 +17,11 @@
 <body>
     <div id="app">
         {{prova}}
-        <div>
-    
-            {{data.data.results.original_title}}
-            {{data.data.results.original_title}}
-            {{data.data.results.original_title}}
+        {{data.data.results[0].title}}
+        <div v-for="elem in data.data.results">
+            {{elem.title}}
+            {{elem.original_title}}
+            {{elem.original_title}}
         </div>
     </div>
     
