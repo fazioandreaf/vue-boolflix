@@ -17,11 +17,24 @@
 </head>
 <body>
     <div id="app">
-        <div class="movie">
-            <div class="top">
+        <div class="top">
+            <div class="top_left">
+                    <img src="img/ape.png" alt="">
+                    <ul>
+                        <li>Home</li>
+                        <li>Serie Tv</li>
+                        <li>Film</li>
+                        <li>Nuovi e popolari</li>
+                    </ul>
+            </div>
+            <div class="top_right">
+
                 <input type="text" class="text" v-on:keyUp.enter="addQuery" v-model="query">
                 <button @click="addQuery">Search</button>
             </div>
+            
+        </div>
+        <div class="movie">
             <main  v-if="query!=''">
                 <div class="card" v-for="elem in allResults.results">
                     <div class="tumbnail">
@@ -52,8 +65,8 @@
             <div v-else>Nessun film presente</div>
         </div>
         <div class="serieTv">
-            <div>Serie tv</div>
-            <main  v-if="query!=''">
+            <div v-if="query!=''">Serie tv</div>
+            <main >
                 <div class="card" v-for="elem in allResults2.results">
                     <div class="tumbnail">
                         <img v-if="elem.poster_path!==null" :src='"http://image.tmdb.org/t/p/original"+elem.poster_path' :alt="elem.name">

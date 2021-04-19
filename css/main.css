@@ -4,7 +4,8 @@
     box-sizing:border-box ;
 }
 body{
-    background: lightblue;
+    background-color: white
+    ;
 }
 #app{
     display: flex;
@@ -13,8 +14,33 @@ body{
 }
 .top{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    height: 68px;
 }
+.top img{
+    height: 100%;
+}
+.top > *{
+    display: flex;
+    align-content: center;
+    margin: 7px;
+}
+.to_right{
+    align-items: center;
+}
+.top_left>*{
+    padding: 10px;
+}
+.top_left ul{
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+}
+.top_left ul li{
+    margin: 5px;
+    font-size: 0.7rem;
+}
+
 main{
     display: flex;
     flex-wrap: wrap;
