@@ -8,9 +8,29 @@ body{
 }
 #app{
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.top{
+    display: flex;
+    justify-content: center;
+}
+main{
+    display: flex;
     flex-wrap: wrap;
 }
 .card{
+    width: 18%;
+    display: flex;
+    flex-direction: column;
     background-color: lightgray;
+    text-align: center;
     margin: 5px;
+}
+.serieTv{
+    margin-top: 40px;
+}
+.titleLang img{
+    width: 15px;
+    height: 10px;
 }

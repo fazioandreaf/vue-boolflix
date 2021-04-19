@@ -3,7 +3,8 @@ function init(){
         el:'#app',
         data:{
             query:'',
-            allResults:''
+            allResults:{},
+            allResults2:{},
         },
         mounted(){
             this.callAPI(this.query)
@@ -24,9 +25,26 @@ function init(){
              console.log('error'))
 
             },
+            callAPI2:function(elem){
+                axios.get('https://api.themoviedb.org/3/search/tv', {
+                    params: {
+                        'api_key': '2087fd848b765980c5bf5832959724ef',
+                        'query':  elem,
+                    }
+                })
+             .then(data => {
+                 this.allResults2=data.data;
+                 console.log(this.allResults2)
+                })
+             .catch(()=>
+             console.log('error'))
+
+            },
+                  
             addQuery:function(){
                 this.callAPI(this.query)
-                console.log(this.query);
+                this.callAPI2(this.query)
+                
             }
         }
     })

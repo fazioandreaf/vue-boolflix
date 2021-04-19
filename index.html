@@ -16,18 +16,55 @@
 </head>
 <body>
     <div id="app">
-        <input type="text" class="text" v-on:keyUp.enter="addQuery" v-model="query">
-        <button @click="addQuery">Search</button>
-        <div  v-if="query!=''">
-            <div class="card" v-for="elem in allResults.results">
-                {{elem.title}}
-                {{elem.origina_title}}
-                {{elem.vote_average}}
-                {{elem.original_language}}
-    
+        <div class="movie">
+            <div class="top">
+                <input type="text" class="text" v-on:keyUp.enter="addQuery" v-model="query">
+                <button @click="addQuery">Search</button>
             </div>
+            <main  v-if="query!=''">
+                <div class="card" v-for="elem in allResults.results">
+                    <span class="title">
+                        {{elem.title}}
+                    </span>
+                    <span class="titleOR">
+                        {{elem.origina_title}}
+                    </span>
+                    <span class="titleVote">
+                        {{elem.vote_average}}
+                    </span>
+                    <span class="titleLang">
+                        <img v-if="elem.original_language=='en'"
+                    src="img/en.jpg">
+                        <img v-else :src='"https://flagcdn.com/16x12/"+elem.original_language+".png"' alt="">
+
+                    </span>
+                </div>
+            </main>
+            <div v-else>Nessun film presente</div>
         </div>
-        <div v-else>ciao</div>
+        <div class="serieTv">
+            <div>Serie tv</div>
+            <main  v-if="query!=''">
+                <div class="card" v-for="elem in allResults2.results">
+                    <span class="name">
+                        {{elem.name}}
+                    </span>
+                    <span class="nameOR">
+                        {{elem.origina_name}}
+                    </span>
+                    <span class="titleVote">
+                        {{elem.vote_average}}
+                    </span>
+                    <span class="titleLang">
+                    <img v-if="elem.original_language=='en'"
+                    src="img/en.jpg">
+                    <img v-else :src='"https://flagcdn.com/16x12/"+elem.original_language+".png"' alt="">
+                    </span>
+                </div>
+            </main>
+            <div v-else>Nessun serie tv presente</div>
+
+        </div>
     </div>
     
 </body>
