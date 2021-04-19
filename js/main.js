@@ -19,7 +19,7 @@ function init(){
                 })
              .then(data => {
                  this.allResults=data.data;
-                 console.log(this.allResults)
+                 console.log(this.allResults.results)
                 })
              .catch(()=>
              console.log('error'))
@@ -34,7 +34,7 @@ function init(){
                 })
              .then(data => {
                  this.allResults2=data.data;
-                 console.log(this.allResults2)
+                 console.log(this.allResults2.results)
                 })
              .catch(()=>
              console.log('error'))

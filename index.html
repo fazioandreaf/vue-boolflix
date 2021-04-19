@@ -8,7 +8,8 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <!-- cdn axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
-    
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <script src="js/main.js"></script>
     <!-- foglio di stile -->
     <link rel="stylesheet" href="css/main.css">
@@ -23,6 +24,9 @@
             </div>
             <main  v-if="query!=''">
                 <div class="card" v-for="elem in allResults.results">
+                    <div class="tumbnail">
+                        <img :src='"http://image.tmdb.org/t/p/original"+elem.poster_path' alt="">
+                    </div>
                     <span class="title">
                         {{elem.title}}
                     </span>
@@ -30,13 +34,18 @@
                         {{elem.origina_title}}
                     </span>
                     <span class="titleVote">
-                        {{elem.vote_average}}
+                        <span v-if="elem.vote_average==0"> Recensiscilo! </span>
+                        <div v-else>
+                            
+                            <i v-for="elem in Math.round(elem.vote_average/2)"class="fa fa-star" aria-hidden="true"></i> 
+                            <i  v-for="elem in (5-Math.round(elem.vote_average/2))" class="fa fa-star noStar" aria-hidden="true"></i>
+
+                        </div>
                     </span>
                     <span class="titleLang">
                         <img v-if="elem.original_language=='en'"
                     src="img/en.jpg">
                         <img v-else :src='"https://flagcdn.com/16x12/"+elem.original_language+".png"' alt="">
-
                     </span>
                 </div>
             </main>
@@ -46,6 +55,10 @@
             <div>Serie tv</div>
             <main  v-if="query!=''">
                 <div class="card" v-for="elem in allResults2.results">
+                    <div class="tumbnail">
+                        <img v-if="elem.poster_path!==null" :src='"http://image.tmdb.org/t/p/original"+elem.poster_path' :alt="elem.name">
+                        <img v-else src="img/ape.png" alt="">
+                    </div>
                     <span class="name">
                         {{elem.name}}
                     </span>
@@ -53,7 +66,7 @@
                         {{elem.origina_name}}
                     </span>
                     <span class="titleVote">
-                        {{elem.vote_average}}
+                        {Math.round{elem.vote_average%2}}
                     </span>
                     <span class="titleLang">
                     <img v-if="elem.original_language=='en'"

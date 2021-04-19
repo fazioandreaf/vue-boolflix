@@ -34,3 +34,9 @@ main{
     width: 15px;
     height: 10px;
 }
+.tumbnail img{
+    width: 100%;
+}
+.titleVote>div .noStar{
+    color: rgba(1,1,1,0.1);
+}
