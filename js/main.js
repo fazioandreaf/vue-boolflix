@@ -11,6 +11,7 @@ function init(){
             errorMessage:'',
             genreTv:[],
             genreMovie:[],
+            provaa:'',
         },
         // mounted(){
         //     // this.callAPI(this.queryDefault)
@@ -62,6 +63,9 @@ function init(){
                 // console.log(this.genreMovie);
                 this.genreMovie=data.data.genres;
                 // console.log(this.genreMovie);
+
+                // for(i=0;i<this.genreMovie.length;i++)
+                // console.log(this.genreMovie[i].id);
             })
             .catch(()=>
             console.log('error'))
@@ -109,8 +113,16 @@ function init(){
                 
             },
             //debug
-            log: function(){
-                console.log('esco');
+            log: function(prova){
+                // console.log('prova',prova);
+                console.log(this.genreMovie.length);
+                for(i=0;i<2;i++)
+                if(this.genreMovie[i].id==prova) {
+                    console.log(this.genreMovie[i]);
+                    this.provaa=this.genreMovie[i].name; 
+                } else console.log('non trovato');
+                // console.log(this.genreMovie[i].id);
+                console.log(this.provaa);
             }
         }
     })

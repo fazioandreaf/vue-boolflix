@@ -43,9 +43,23 @@
                         <img v-if="elem.poster_path!=null" :src='"http://image.tmdb.org/t/p/original"+elem.poster_path' alt="">
                         <img v-else src="img/ape.png" alt ="Something go wrong">
                     </div>
+
+
+                    <!-- parte di debug del genere -->
                     <div class="description_hover" 
                     @mouseleave="descriptionHover(elem,index)"  
-                    v-if="elem===activeCard">
+
+                    
+                    v-if="elem!=activeCard">
+                    <span style="color:red;">
+                        {{elem.genre_ids}}
+                        <!-- {{log(elem.genre_ids)}} -->
+                        {{provaa}}
+                    </span>
+                    <span v-if="genreMovie.includes(elem.genre_ids)" style="color:green;">
+                    </span>
+
+                    
                         <span class="title">
                             <span class="mainT">Titolo: </span>{{elem.title}}
                         </span>
