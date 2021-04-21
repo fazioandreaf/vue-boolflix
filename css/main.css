@@ -23,9 +23,10 @@ body{
 .top > *{
     display: flex;
     align-content: center;
+    align-items: center;
     margin: 7px;
 }
-.to_right{
+.top_right{
     align-items: center;
 }
 .top_left>*{
@@ -46,12 +47,14 @@ main{
     flex-wrap: wrap;
 }
 .card{
+    position: relative;
     width: 18%;
     display: flex;
     flex-direction: column;
     background-color: lightgray;
     text-align: center;
     margin: 5px;
+    border: 1px solid white;
 }
 .serieTv{
     margin-top: 40px;
@@ -63,6 +66,28 @@ main{
 .tumbnail img{
     width: 100%;
 }
-.titleVote>div .noStar{
-    color: rgba(1,1,1,0.1);
+.titleVote .fa-star{
+    color: yellow;
+}
+.titleVote .noStar{
+    color: rgba(100,100,100,0.8);
+}
+.description_hover{
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    color: rgba(255, 255, 255, 0.7);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: left;
+    /* display: none; */
+}
+.titleDescription{
+    overflow-y: auto;
+}
+.mainT{
+    color: white;
+    font-weight: bolder;
 }

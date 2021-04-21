@@ -2,12 +2,15 @@ function init(){
     new Vue({
         el:'#app',
         data:{
-            query:'',
+            queryDeafult:'batman',
+            queryRealy:'',
             allResults:{},
             allResults2:{},
+            activeCard:'',
         },
         mounted(){
-            this.callAPI(this.query)
+            this.callAPI(this.queryDeafult)
+            this.callAPI2(this.queryDeafult)
         },
         'methods':{
             callAPI:function(elem){
@@ -19,7 +22,6 @@ function init(){
                 })
              .then(data => {
                  this.allResults=data.data;
-                 console.log(this.allResults.results)
                 })
              .catch(()=>
              console.log('error'))
@@ -34,17 +36,22 @@ function init(){
                 })
              .then(data => {
                  this.allResults2=data.data;
-                 console.log(this.allResults2.results)
                 })
              .catch(()=>
              console.log('error'))
 
             },
-                  
             addQuery:function(){
-                this.callAPI(this.query)
-                this.callAPI2(this.query)
+                this.callAPI(this.queryRealy)
+                this.callAPI2(this.queryRealy)
                 
+            },
+            descriptionHover:function(elem,index){
+                if(this.activeCard===elem?this.activeCard='':this.activeCard=elem);
+                
+            },
+            log: function(){
+                console.log('esco');
             }
         }
     })
