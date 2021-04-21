@@ -44,8 +44,6 @@
                         <img v-else src="img/ape.png" alt ="Something go wrong">
                     </div>
 
-
-                    <!-- parte di debug del genere -->
                     <div class="description_hover" 
                     @mouseleave="descriptionHover(elem,index)"  
                     v-if="elem==activeCard">
@@ -71,11 +69,11 @@
         
                             </span>
                         </span>
-                        <div>
+                        <div class="mainT">
                             Genere: 
                             <span class="genre">{{foundGenre(elem.genre_ids)}}</span>
                         </div>
-                        <div>
+                        <div class="mainT">
                             Cast :
                             <span class="cast">{{cast(elem)}}</span>
                         </div>
@@ -120,11 +118,11 @@
                                     <i v-for="elem in Math.round(elem.vote_average/2)"class="fa fa-star" aria-hidden="true"></i> 
                                     <i  v-for="elem in (5-Math.round(elem.vote_average/2))" class="fa fa-star noStar" aria-hidden="true"></i>
                             </span>
-                        <div>
+                        <div class="mainT">
                             Genere: 
                             <span class="genre">{{foundGenre(elem.genre_ids)}}</span>
                         </div>
-                        <div>
+                        <div class="mainT">
                             Cast :
                             <span class="cast">{{cast(elem)}}</span>
                         </div>

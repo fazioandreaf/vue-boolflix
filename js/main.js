@@ -21,29 +21,29 @@ function init(){
         // },
         created:function(){
 
-            // axios.get('https://api.themoviedb.org/3/movie/popular', {
-            //     params: {
-            //         'api_key': '2087fd848b765980c5bf5832959724ef',
-            //         'page':  this.random,
-            //     }
-            // })
-            // .then(data => {
-            //     this.allResults=data.data;
-            // })
-            // .catch(()=>
-            // console.log('error'))
+            axios.get('https://api.themoviedb.org/3/movie/popular', {
+                params: {
+                    'api_key': '2087fd848b765980c5bf5832959724ef',
+                    'page':  this.random,
+                }
+            })
+            .then(data => {
+                this.allResults=data.data;
+            })
+            .catch(()=>
+            console.log('error'))
 
-            // axios.get('https://api.themoviedb.org/3/tv/popular', {
-            //     params: {
-            //         'api_key': '2087fd848b765980c5bf5832959724ef',
-            //         'page':  this.random,
-            //     }
-            // })
-            // .then(data => {
-            //     this.allResults2=data.data;
-            // })
-            // .catch(()=>
-            // console.log('error'))
+            axios.get('https://api.themoviedb.org/3/tv/popular', {
+                params: {
+                    'api_key': '2087fd848b765980c5bf5832959724ef',
+                    'page':  this.random,
+                }
+            })
+            .then(data => {
+                this.allResults2=data.data;
+            })
+            .catch(()=>
+            console.log('error'))
             axios.get('https://api.themoviedb.org/3/genre/tv/list', {
                 params: {
                     'api_key': '2087fd848b765980c5bf5832959724ef',

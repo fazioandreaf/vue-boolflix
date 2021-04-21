@@ -13,6 +13,7 @@ body{
     align-items: baseline;
 }
 .top{
+    width: 100%;
     background-color: #0b0b0b;
     color: white;
     display: flex;
@@ -99,6 +100,6 @@ body{
     color: white;
 }
 .genre, .cast{
-    font-weight: bolder;
+    color: rgba(255, 255, 255, 0.7);
     font-style: italic;
 }
