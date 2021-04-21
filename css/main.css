@@ -98,3 +98,7 @@ body{
 .notFound{
     color: white;
 }
+.genre{
+    font-weight: bolder;
+    font-style: italic;
+}
