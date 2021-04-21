@@ -13,6 +13,7 @@
     <script src="js/main.js"></script>
     <!-- foglio di stile -->
     <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <title>Boolflix</title>
 </head>
 <body>
@@ -29,16 +30,17 @@
             </div>
             <div class="top_right">
 
-                <input type="text" class="text" v-on:keyUp.enter="addQuery" v-model="queryRealy">
+                <input type="text" class="text" v-on:keyUp.enter="addQuery" v-model="queryReally">
                 <button @click="addQuery">Search</button>
             </div>
             
         </div>
         <div class="movie">
-            <main  v-if="queryDeafult!=''">
+            <main  v-if="queryDefault!=''">
                 <div class="card"  v-for="(elem,index) in allResults.results">
                     <div class="tumbnail" @mouseenter="descriptionHover(elem,index)">
-                        <img :src='"http://image.tmdb.org/t/p/original"+elem.poster_path' alt="">
+                        <img v-if="elem.poster_path!=null" :src='"http://image.tmdb.org/t/p/original"+elem.poster_path' alt="">
+                        <img v-else src="img/ape.png" alt ="Something go wrong">
                     </div>
                     <div class="description_hover" 
                     @mouseleave="descriptionHover(elem,index)"  
@@ -74,11 +76,13 @@
             <div v-else>Nessun film presente</div>
         </div>
         <div class="serieTv">
-            <div v-if="queryDeafult!=''">Serie tv</div>
-            <main  v-if="queryDeafult!=''">
+            <div v-if="queryDefault!=''">Serie tv</div>
+            <main  v-if="queryDefault!=''">
                 <div class="card" @mouseenter="descriptionHover(elem,index)" v-for="(elem,index) in allResults2.results">
                     <div class="tumbnail">
-                        <img :src='"http://image.tmdb.org/t/p/original"+elem.poster_path' alt="">
+                        
+                        <img v-if="elem.poster_path!=null" :src='"http://image.tmdb.org/t/p/original"+elem.poster_path' alt="">
+                        <img v-else src="img/ape.png" alt ="Something go wrong">
                     </div>
                         <div class="description_hover" 
                         @mouseleave="descriptionHover(elem,index)"  

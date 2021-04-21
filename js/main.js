@@ -2,15 +2,15 @@ function init(){
     new Vue({
         el:'#app',
         data:{
-            queryDeafult:'batman',
-            queryRealy:'',
+            queryDefault:'batman',
+            queryReally:'',
             allResults:{},
             allResults2:{},
             activeCard:'',
         },
         mounted(){
-            this.callAPI(this.queryDeafult)
-            this.callAPI2(this.queryDeafult)
+            this.callAPI(this.queryDefault)
+            this.callAPI2(this.queryDefault)
         },
         'methods':{
             callAPI:function(elem){
@@ -42,8 +42,8 @@ function init(){
 
             },
             addQuery:function(){
-                this.callAPI(this.queryRealy)
-                this.callAPI2(this.queryRealy)
+                this.callAPI(this.queryReally)
+                this.callAPI2(this.queryReally)
                 
             },
             descriptionHover:function(elem,index){
