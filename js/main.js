@@ -9,6 +9,8 @@ function init(){
             activeCard:'',
             random:(Math.floor(Math.random()*5)+1),
             errorMessage:'',
+            genreTv:[],
+            genreMovie:[],
         },
         // mounted(){
         //     // this.callAPI(this.queryDefault)
@@ -39,6 +41,30 @@ function init(){
             })
             .catch(()=>
             console.log('error'))
+            axios.get('https://api.themoviedb.org/3/genre/tv/list', {
+                params: {
+                    'api_key': '2087fd848b765980c5bf5832959724ef',
+                }
+            })
+            .then(data => {
+                // console.log(this.genreTv);
+                this.genreTv=data.data.genres;
+                // console.log(this.genreTv);
+            })
+            .catch(()=>
+            console.log('error'))
+            axios.get('https://api.themoviedb.org/3/genre/movie/list', {
+                params: {
+                    'api_key': '2087fd848b765980c5bf5832959724ef',
+                }
+            })
+            .then(data => {
+                // console.log(this.genreMovie);
+                this.genreMovie=data.data.genres;
+                // console.log(this.genreMovie);
+            })
+            .catch(()=>
+            console.log('error'))
 
 
 
@@ -54,7 +80,7 @@ function init(){
                 })
              .then(data => {
                  this.allResults=data.data;
-                 if(this.allResults.results.length==0?this.errorMessage='Nessun film trovato':console.log('viaviaivsai',this.allResults.results));
+                 if(this.allResults.results.length==0?this.errorMessage='Nessun film trovato':this.errorMessage='');
                 })
              .catch(()=>
              console.log('error'))

@@ -36,8 +36,8 @@
             
         </div>
         <div class="movie">
+            <div class="notFound">{{errorMessage}}</div>
             <div class="main"  v-if="queryDefault!=''">
-                <div class="notFound">{{errorMessage}}</div>
                 <div class="card"  v-for="(elem,index) in allResults.results">
                     <div class="tumbnail" @mouseenter="descriptionHover(elem,index)">
                         <img v-if="elem.poster_path!=null" :src='"http://image.tmdb.org/t/p/original"+elem.poster_path' alt="">
@@ -76,8 +76,8 @@
             </div>
             <div v-else>Nessun film presente</div>
         </div>
-        <div class="serieTv" v-if="allResults2.results.length!=0">
-            <div class="title_list" v-if="queryDefault!=''">Serie tv</div>
+        <div class="serieTv" v-if="allResults2.length!=0">
+            <div class="title_list" v-if="allResults2.length!=0">Serie tv</div>
             <div class="main"  v-if="queryDefault!=''">
                 <div class="card" @mouseenter="descriptionHover(elem,index)" v-for="(elem,index) in allResults2.results">
                     <div class="tumbnail">
