@@ -7,10 +7,42 @@ function init(){
             allResults:{},
             allResults2:{},
             activeCard:'',
+            random:(Math.floor(Math.random()*5)+1),
+            errorMessage:'',
         },
-        mounted(){
-            this.callAPI(this.queryDefault)
-            this.callAPI2(this.queryDefault)
+        // mounted(){
+        //     // this.callAPI(this.queryDefault)
+        //     // this.callAPI2(this.queryDefault)
+        // },
+        created:function(){
+
+            axios.get('https://api.themoviedb.org/3/movie/popular', {
+                params: {
+                    'api_key': '2087fd848b765980c5bf5832959724ef',
+                    'page':  this.random,
+                }
+            })
+            .then(data => {
+                this.allResults=data.data;
+            })
+            .catch(()=>
+            console.log('error'))
+
+            axios.get('https://api.themoviedb.org/3/tv/popular', {
+                params: {
+                    'api_key': '2087fd848b765980c5bf5832959724ef',
+                    'page':  this.random,
+                }
+            })
+            .then(data => {
+                this.allResults2=data.data;
+            })
+            .catch(()=>
+            console.log('error'))
+
+
+
+
         },
         'methods':{
             callAPI:function(elem){
@@ -22,6 +54,7 @@ function init(){
                 })
              .then(data => {
                  this.allResults=data.data;
+                 if(this.allResults.results.length==0?this.errorMessage='Nessun film trovato':console.log('viaviaivsai',this.allResults.results));
                 })
              .catch(()=>
              console.log('error'))
@@ -37,19 +70,19 @@ function init(){
              .then(data => {
                  this.allResults2=data.data;
                 })
-             .catch(()=>
-             console.log('error'))
-
+                .catch(()=>
+                console.log('error'))
+                
             },
             addQuery:function(){
                 this.callAPI(this.queryReally)
                 this.callAPI2(this.queryReally)
-                
             },
             descriptionHover:function(elem,index){
                 if(this.activeCard===elem?this.activeCard='':this.activeCard=elem);
                 
             },
+            //debug
             log: function(){
                 console.log('esco');
             }
