@@ -71,9 +71,15 @@
         
                             </span>
                         </span>
-                        <span class="genre">
-                            {{foundGenre(elem.genre_ids)}}
-                        </span>
+                        <div>
+                            Genere: 
+                            <span class="genre">{{foundGenre(elem.genre_ids)}}</span>
+                        </div>
+                        <div>
+                            Cast :
+                            <span class="cast">{{cast(elem)}}</span>
+                        </div>
+
                         <span class="titleDescription">
                             <span class="mainT">Overview: </span>{{elem.overview}}
                         </span>
@@ -113,8 +119,16 @@
                                     
                                     <i v-for="elem in Math.round(elem.vote_average/2)"class="fa fa-star" aria-hidden="true"></i> 
                                     <i  v-for="elem in (5-Math.round(elem.vote_average/2))" class="fa fa-star noStar" aria-hidden="true"></i>
-        
                             </span>
+                        <div>
+                            Genere: 
+                            <span class="genre">{{foundGenre(elem.genre_ids)}}</span>
+                        </div>
+                        <div>
+                            Cast :
+                            <span class="cast">{{cast(elem)}}</span>
+                        </div>
+
                         </span>
                         <span class="titleDescription">
                             <span class="mainT">Overview: </span>{{elem.overview}}

@@ -98,7 +98,7 @@ body{
 .notFound{
     color: white;
 }
-.genre{
+.genre, .cast{
     font-weight: bolder;
     font-style: italic;
 }

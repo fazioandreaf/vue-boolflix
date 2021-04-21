@@ -11,6 +11,9 @@ function init(){
             errorMessage:'',
             genreTv:[],
             genreMovie:[],
+            castId:'',
+            allcast:'',
+            prevFilm:'',
         },
         // mounted(){
         //     // this.callAPI(this.queryDefault)
@@ -117,6 +120,32 @@ function init(){
                     }
                 }
                 return allgenre
+            },
+            cast:function(elem){
+                let idFilm=elem.id;
+                if(idFilm!=this.prevFilm){
+                    this.allcast='';
+                    this.prevFilm=idFilm
+                
+                axios.get('https://api.themoviedb.org/3/movie/'+idFilm+'/credits', {
+                params: {
+                    'api_key': '2087fd848b765980c5bf5832959724ef',
+                }
+            })
+            .then(data => {
+                this.castID=data.data.cast;
+                    for(i=0;i<5;i++){
+                            this.allcast +=this.castID[i].name+', ';
+                    }
+                    console.log(this.allcast);
+            })
+            .catch(()=>
+            console.log('error'))
+
+            }
+            else console.log('ciao');
+            return this.allcast
+                
             }
         }
     })
